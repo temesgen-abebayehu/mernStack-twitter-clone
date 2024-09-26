@@ -104,14 +104,14 @@ export const getSuggestedUsers = async (req, res) => {
     }
 }
 
-export const updatedUserProfile = async (res, req)=>{
-    const {fullname, email, username, currentPassword, newPassword, bio, link} = req.body;
+export const updatedUserProfile = async (req, res)=>{
+    let {fullName, email, username, currentPassword, newPassword, bio, link} = req.body;
     let {profileImg, coverImg} = req.body;
 
     const userId = req.user._id;
 
     try {
-        const user = await User.findById(userId);
+        let user = await User.findById(userId);
         if(!user) return res.status(404).json({message: "User not found"});
 
         if((!newPassword && currentPassword) || (!currentPassword && newPassword)){
@@ -149,7 +149,7 @@ export const updatedUserProfile = async (res, req)=>{
             coverImg = uploadedResponce.secure_url;
         }
 
-        user.fullName = fullname || user.fullName;
+        user.fullName = fullName || user.fullName;
         user.email = email || user.email;
         user.username = username || user.username;
         user.bio = bio || user.bio;
@@ -164,7 +164,7 @@ export const updatedUserProfile = async (res, req)=>{
 
         return res.status(200).json(user);
     } catch (error) {
-        console.log("Error in getUserProfile: ", error.message);
+        console.log("Error in updateUserProfile: ", error.message);
         res.status(500).json({error: error.message});
     }
 };
