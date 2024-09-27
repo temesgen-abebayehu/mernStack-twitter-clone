@@ -6,6 +6,7 @@ import {v2 as cloudinary} from "cloudinary";
 import authRouters from "./routes/auth.route.js";
 import userRouters from "./routes/user.router.js";
 import postRouters from "./routes/post.route.js";
+import notificationRoutes from "./routes/notification.route.js";
 
 import connectMongoDB from "./db/connectMongoDB.js";
 
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRouters);
 app.use("/api/user", userRouters);
 app.use("/api/posts", postRouters);
+app.use("/api/notification", notificationRoutes);
 
 
 // console.log(process.env.MONGO_URL);
