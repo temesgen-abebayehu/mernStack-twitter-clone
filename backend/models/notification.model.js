@@ -15,7 +15,7 @@ const notificationSchema = new mongoose.Schema(
         type:{
             type: String,
             required: true,
-            enum: ["follow", "unfollow", "like"],
+            enum: ["follow", "like"],
         },
         read:{
             type: Boolean,
