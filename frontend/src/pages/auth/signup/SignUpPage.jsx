@@ -36,8 +36,9 @@ const SignUpPage = () => {
 				console.log(data);
 				return data;
 			} catch (error) {
-				console.error(error);
+				console.Error(error);
 				throw error;
+				// toast.error(error.message);
 			}
 		},
 		onSuccess: () => {
@@ -52,8 +53,7 @@ const SignUpPage = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault(); // page won't reload
-		// mutate(formData);
-		console.log(formData);
+		mutate(formData);
 	};
 
 	const handleInputChange = (e) => {
