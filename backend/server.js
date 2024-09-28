@@ -25,9 +25,9 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
 app.use("/api/auth", authRouters);
-app.use("/api/user", userRouters);
+app.use("/api/users", userRouters);
 app.use("/api/posts", postRouters);
-app.use("/api/notification", notificationRoutes);
+app.use("/api/notifications", notificationRoutes);
 
 
 // console.log(process.env.MONGO_URL);
