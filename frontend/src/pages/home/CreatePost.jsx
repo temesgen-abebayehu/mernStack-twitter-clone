@@ -13,6 +13,7 @@ const CreatePost = () => {
 	const { data: authUser } = useQuery({ queryKey: ["authUser"] });
 	const queryClient = useQueryClient();
 
+	//create post
 	const {
 		mutate: createPost,
 		isPending,
