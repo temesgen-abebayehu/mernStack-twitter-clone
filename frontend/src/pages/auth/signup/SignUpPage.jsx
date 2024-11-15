@@ -36,7 +36,7 @@ const SignUpPage = () => {
 				console.log(data);
 				return data;
 			} catch (error) {
-				console.Error(error);
+				console.error(error);
 				throw error;
 				// toast.error(error.message);
 			}
